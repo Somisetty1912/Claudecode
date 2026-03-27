@@ -1,13 +1,14 @@
+
 {
-  "name": "claude-fastapi-kit",
-  "owner": { "name": "kaushal" },
-  "repository": "https://github.com/Somisetty1912/Claudecode",
-  "plugins": [
-    {
-      "name": "fastapi_plugin",
-      "source": ".",
-      "description": "Commands, skills, agents, and hooks for Python/FastAPI projects",
-      "category": "development"
-    }
-  ]
+    "name": "Sample-Python-plugin",
+    "owner": {
+        "name": "JJS"
+    },
+    "plugins": [
+        {
+            "name": "python_plugin",
+            "source": "./pyplugin",
+            "description": "python plugin to creating endpoint, review module, and generate tests"
+        }
+    ]
 }
