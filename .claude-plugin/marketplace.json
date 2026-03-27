@@ -5,11 +5,9 @@
   "plugins": [
     {
       "name": "fastapi_plugin",
-      "source": ".claude-plugin/plugin.json",
+      "source": ".",
       "description": "Commands, skills, agents, and hooks for Python/FastAPI projects",
-      "version": "1.0.0",
-      "tags": ["python", "fastapi", "sqlalchemy", "alembic", "pytest"],
-      "install_command": "claude plugin install github:Somisetty1912/Claudecode"
+      "category": "development"
     }
   ]
 }
