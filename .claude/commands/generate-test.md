@@ -1,3 +1,9 @@
+---
+name: generate-test
+description: Generate pytest file with fixtures, happy path, and error cases
+usage: /generate-test <module_path>
+---
+
 # Generate pytest Test File
 
 Generate a comprehensive pytest test file for an existing Python module or service.

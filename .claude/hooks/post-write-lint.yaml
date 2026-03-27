@@ -1,0 +1,30 @@
+---
+name: post-write-lint
+description: Run linting and formatting on write/edit operations
+event: PostToolUse
+matcher: Write|Edit
+command: bash hooks/post-write-lint.sh ${file}
+---
+
+# Post-Write Linting Hook
+
+Automatically runs linting and formatting checks after Write or Edit operations.
+
+## Trigger
+
+- **Event**: PostToolUse
+- **Matcher**: `Write|Edit` (runs after Write or Edit tool use)
+
+## Command
+
+```bash
+bash hooks/post-write-lint.sh ${file}
+```
+
+## Purpose
+
+Ensures code quality by automatically running formatters and linters on modified files without requiring manual invocation.
+
+## Environment Variables
+
+- `${file}` — Path to the file that was just modified

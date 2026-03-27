@@ -1,3 +1,9 @@
+---
+name: review-module
+description: Code review types, async, error handling, OWASP security
+usage: /review-module <file_path>
+---
+
 # Review FastAPI Module
 
 Perform a thorough code review of the given file, covering types, async correctness, error handling, and security.

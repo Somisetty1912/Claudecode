@@ -1,3 +1,9 @@
+---
+name: generate-endpoint
+description: Generate router + schemas + service + test for a resource/method
+usage: /generate-endpoint <resource> <method>
+---
+
 # Generate FastAPI Endpoint
 
 Generate a complete FastAPI endpoint implementation for the given resource and HTTP method.

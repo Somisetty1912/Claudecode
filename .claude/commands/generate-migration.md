@@ -1,3 +1,9 @@
+---
+name: generate-migration
+description: Generate an Alembic migration file for a schema change
+usage: /generate-migration <description>
+---
+
 # Generate Alembic Migration
 
 Generate an Alembic migration file with `upgrade()` and `downgrade()` for a described schema change.

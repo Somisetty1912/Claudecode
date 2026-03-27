@@ -1,3 +1,9 @@
+---
+name: generate-model
+description: Generate SQLAlchemy model + Alembic migration stub + Pydantic schemas
+usage: /generate-model <ModelName>
+---
+
 # Generate SQLAlchemy Model
 
 Generate a complete SQLAlchemy model with Alembic migration stub and Pydantic schemas.

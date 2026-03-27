@@ -1,14 +1,18 @@
 ---
 name: fastapi-patterns
 description: FastAPI architecture patterns for routers, dependency injection, response models, and service layer separation. Activates on APIRouter, Depends, router, endpoint keywords.
-triggers:
-  - keyword: APIRouter
-  - keyword: Depends
-  - keyword: router
-  - keyword: endpoint
 ---
 
 # FastAPI Patterns
+
+## Trigger Conditions
+
+Automatically activate this skill when:
+- Writing or modifying FastAPI routers or endpoints
+- The user mentions "APIRouter", "Depends", "router", "endpoint", "dependency injection", or "response_model"
+- Creating a new FastAPI route, service layer, or API schema
+
+---
 
 ## Project Structure
 

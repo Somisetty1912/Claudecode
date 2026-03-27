@@ -1,11 +1,18 @@
 ---
 name: python-best-practices
 description: Python coding standards for type safety, async correctness, and code quality. Auto-activates on any .py file.
-triggers:
-  - file_extension: .py
 ---
 
 # Python Best Practices
+
+## Trigger Conditions
+
+Automatically activate this skill when:
+- Writing or modifying any `.py` file
+- The user mentions "function", "class", "async", "endpoint", "type hints", or "error handling"
+- Generating a new Python module, utility, or service function
+
+---
 
 Apply these rules to every Python file you write or modify.
 
