@@ -1,9 +1,10 @@
 {
-  "name": "fastapi_plugin",
-  "version": "1.0.0",
-  "description": "Commands, skills, agents, and hooks for Python/FastAPI projects",
-  "author": "kaushal",
-  "source": "https://github.com/Somisetty1912/Claudecode",
+  "name": "pyplugin",
+  "version": "1.1.0",
+  "description": "python plugin to creating endpoint, review module, and generate tests",
+  "author": {
+    "name": "JJS"
+  },
   "install": {
     "copy": [
       { "from": ".claude/commands/", "to": ".claude/commands/" },
