@@ -1,15 +1,18 @@
 ---
 name: sqlalchemy-patterns
 description: SQLAlchemy 2.x async ORM patterns for models, queries, relationships, and Alembic migrations. Activates on model, migration, Base, Column, relationship keywords.
-triggers:
-  - keyword: model
-  - keyword: migration
-  - keyword: Base
-  - keyword: Column
-  - keyword: relationship
 ---
 
 # SQLAlchemy Patterns (2.x Async)
+
+## Trigger Conditions
+
+Automatically activate this skill when:
+- Writing or modifying SQLAlchemy models
+- The user mentions "model", "migration", "Base", "Column", "relationship", "query patterns", or "Alembic"
+- Creating database models, migrations, or async queries
+
+---
 
 ## Model Definition
 

@@ -18,85 +18,48 @@
   },
   "commands": [
     {
-      "name": "generate-endpoint",
-      "description": "Generate router + schemas + service + test for a resource/method",
-      "usage": "/generate-endpoint <resource> <method>"
+      "path": ".claude/commands/generate-endpoint.md"
     },
     {
-      "name": "generate-model",
-      "description": "Generate SQLAlchemy model + Alembic migration stub + Pydantic schemas",
-      "usage": "/generate-model <ModelName>"
+      "path": ".claude/commands/generate-model.md"
     },
     {
-      "name": "generate-migration",
-      "description": "Generate an Alembic migration file for a schema change",
-      "usage": "/generate-migration <description>"
+      "path": ".claude/commands/generate-migration.md"
     },
     {
-      "name": "generate-test",
-      "description": "Generate pytest file with fixtures, happy path, and error cases",
-      "usage": "/generate-test <module_path>"
+      "path": ".claude/commands/generate-test.md"
     },
     {
-      "name": "review-module",
-      "description": "Code review: types, async, error handling, OWASP security",
-      "usage": "/review-module <file_path>"
+      "path": ".claude/commands/review-module.md"
     }
   ],
   "agents": [
     {
-      "name": "security-auditor",
-      "path": ".claude/agents/security-auditor.yaml",
-      "description": "OWASP API Top 10 security audit — invoke before opening a PR",
-      "invocation": "@security-auditor"
+      "path": ".claude/agents/security-auditor.yaml"
     },
     {
-      "name": "db-reviewer",
-      "path": ".claude/agents/db-reviewer.yaml",
-      "description": "N+1s, missing indexes, unsafe migrations — invoke before DB changes",
-      "invocation": "@db-reviewer"
+      "path": ".claude/agents/db-reviewer.yaml"
     },
     {
-      "name": "test-coverage",
-      "path": ".claude/agents/test-coverage.yaml",
-      "description": "Untested paths and concrete test case suggestions",
-      "invocation": "@test-coverage"
+      "path": ".claude/agents/test-coverage.yaml"
     }
   ],
   "skills": [
     {
-      "name": "python-best-practices",
-      "path": ".claude/skills/python-best-practices/SKILL.md",
-      "triggers": [{ "type": "file_extension", "value": ".py" }]
+      "path": ".claude/skills/python-best-practices/SKILL.md"
     },
     {
-      "name": "fastapi-patterns",
-      "path": ".claude/skills/fastapi-patterns/SKILL.md",
-      "triggers": [
-        { "type": "keyword", "value": "APIRouter" },
-        { "type": "keyword", "value": "Depends" },
-        { "type": "keyword", "value": "router" },
-        { "type": "keyword", "value": "endpoint" }
-      ]
+      "path": ".claude/skills/fastapi-patterns/SKILL.md"
     },
     {
-      "name": "sqlalchemy-patterns",
-      "path": ".claude/skills/sqlalchemy-patterns/SKILL.md",
-      "triggers": [
-        { "type": "keyword", "value": "model" },
-        { "type": "keyword", "value": "migration" },
-        { "type": "keyword", "value": "Base" },
-        { "type": "keyword", "value": "Column" },
-        { "type": "keyword", "value": "relationship" }
-      ]
+      "path": ".claude/skills/sqlalchemy-patterns/SKILL.md"
     }
   ],
-  "hooks": {
-    "PostToolUse": {
-      "matcher": "Write|Edit",
-      "command": "bash hooks/post-write-lint.sh ${file}"
+  "hooks": [
+    {
+      "path": ".claude/hooks/post-write-lint.yaml"
     }
-  },
+  ],
   "permissions": {
     "allow": [
       "Bash(black:*)",
