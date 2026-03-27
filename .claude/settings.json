@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(black:*)",
+      "Bash(isort:*)",
+      "Bash(flake8:*)",
+      "Bash(pytest:*)",
+      "Bash(alembic:*)"
+    ],
+    "deny": ["Bash(rm -rf:*)"]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "bash hooks/post-write-lint.sh ${file}" }
+        ]
+      }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "echo Session complete" }] }
+    ]
+  },
+  "env": {
+    "PYTHONPATH": ".",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50"
+  }
+}

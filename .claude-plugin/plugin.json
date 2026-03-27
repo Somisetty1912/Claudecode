@@ -1,0 +1,110 @@
+{
+  "name": "fastapi_plugin",
+  "version": "1.0.0",
+  "description": "Commands, skills, agents, and hooks for Python/FastAPI projects",
+  "author": "kaushal",
+  "source": "https://github.com/Somisetty1912/Claudecode",
+  "install": {
+    "copy": [
+      { "from": ".claude/commands/", "to": ".claude/commands/" },
+      { "from": ".claude/skills/",   "to": ".claude/skills/" },
+      { "from": ".claude/agents/",   "to": ".claude/agents/" },
+      { "from": "hooks/",            "to": "hooks/" },
+      { "from": ".pre-commit-config.yaml", "to": ".pre-commit-config.yaml" }
+    ],
+    "merge": [
+      { "file": ".claude/settings.json", "strategy": "deep_merge" }
+    ]
+  },
+  "commands": [
+    {
+      "name": "generate-endpoint",
+      "description": "Generate router + schemas + service + test for a resource/method",
+      "usage": "/generate-endpoint <resource> <method>"
+    },
+    {
+      "name": "generate-model",
+      "description": "Generate SQLAlchemy model + Alembic migration stub + Pydantic schemas",
+      "usage": "/generate-model <ModelName>"
+    },
+    {
+      "name": "generate-migration",
+      "description": "Generate an Alembic migration file for a schema change",
+      "usage": "/generate-migration <description>"
+    },
+    {
+      "name": "generate-test",
+      "description": "Generate pytest file with fixtures, happy path, and error cases",
+      "usage": "/generate-test <module_path>"
+    },
+    {
+      "name": "review-module",
+      "description": "Code review: types, async, error handling, OWASP security",
+      "usage": "/review-module <file_path>"
+    }
+  ],
+  "agents": [
+    {
+      "name": "security-auditor",
+      "path": ".claude/agents/security-auditor.yaml",
+      "description": "OWASP API Top 10 security audit — invoke before opening a PR",
+      "invocation": "@security-auditor"
+    },
+    {
+      "name": "db-reviewer",
+      "path": ".claude/agents/db-reviewer.yaml",
+      "description": "N+1s, missing indexes, unsafe migrations — invoke before DB changes",
+      "invocation": "@db-reviewer"
+    },
+    {
+      "name": "test-coverage",
+      "path": ".claude/agents/test-coverage.yaml",
+      "description": "Untested paths and concrete test case suggestions",
+      "invocation": "@test-coverage"
+    }
+  ],
+  "skills": [
+    {
+      "name": "python-best-practices",
+      "path": ".claude/skills/python-best-practices/SKILL.md",
+      "triggers": [{ "type": "file_extension", "value": ".py" }]
+    },
+    {
+      "name": "fastapi-patterns",
+      "path": ".claude/skills/fastapi-patterns/SKILL.md",
+      "triggers": [
+        { "type": "keyword", "value": "APIRouter" },
+        { "type": "keyword", "value": "Depends" },
+        { "type": "keyword", "value": "router" },
+        { "type": "keyword", "value": "endpoint" }
+      ]
+    },
+    {
+      "name": "sqlalchemy-patterns",
+      "path": ".claude/skills/sqlalchemy-patterns/SKILL.md",
+      "triggers": [
+        { "type": "keyword", "value": "model" },
+        { "type": "keyword", "value": "migration" },
+        { "type": "keyword", "value": "Base" },
+        { "type": "keyword", "value": "Column" },
+        { "type": "keyword", "value": "relationship" }
+      ]
+    }
+  ],
+  "hooks": {
+    "PostToolUse": {
+      "matcher": "Write|Edit",
+      "command": "bash hooks/post-write-lint.sh ${file}"
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(black:*)",
+      "Bash(isort:*)",
+      "Bash(flake8:*)",
+      "Bash(pytest:*)",
+      "Bash(alembic:*)"
+    ],
+    "deny": ["Bash(rm -rf:*)"]
+  }
+}
