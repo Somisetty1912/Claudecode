@@ -1,3 +1,4 @@
+
 ---
 name: python-best-practices
 description: Python coding standards for type safety, async correctness, and code quality. Auto-activates on any .py file.
