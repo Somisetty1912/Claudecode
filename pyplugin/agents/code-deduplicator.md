@@ -250,18 +250,4 @@ tool_permissions:
       - "git push"
       - "git commit"
 
-invoke_with: |
-  @code-deduplicator [path] [--comprehensive] [--all-categories]
-
-  Default behavior: Scans entire codebase, applies ALL fixes automatically, generates comprehensive before/after reports
-  - path (optional): Specify codebase root; defaults to current directory
-  - --comprehensive: Generate extensive analysis reports (default: true)
-  - --all-categories: Analyze all duplication categories (default: true)
-
-  This agent WILL:
-  ✅ Analyze entire codebase (all files, all modules)
-  ✅ Identify all duplications, DRY violations, unused code
-  ✅ Apply ALL fixes automatically (no confirmation needed)
-  ✅ Generate detailed before/after reports
-  ✅ Create change logs with exact modifications
-  ✅ Preserve all existing functionality
+invoke_with: "@code-deduplicator [path] [--comprehensive] [--all-categories]"
